@@ -44,7 +44,7 @@ industrial-energy-consumption-forecasting/
 6. Evaluated performance using MAE and R² Score  
 
 ### 📈 Results
-- Achieved **XX% R² score** and **MAE = XX kWh** on test data.  
+- Achieved **98% R² score** and **MAE = 2.47 kWh** on test data.  
 - Found significant correlation between temperature, humidity, and energy usage.
 
 ### 💡 Future Work
