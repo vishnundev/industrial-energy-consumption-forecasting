@@ -1,61 +1,111 @@
-# 🏭 Industrial Energy Consumption Forecasting
+# Industrial Energy Consumption Forecasting
 
-### 📊 Overview
-This project uses **machine learning** to predict industrial energy consumption based on operational and environmental factors.  
-The dataset is sourced from the **UCI Machine Learning Repository (Steel Industry Energy Consumption)** and contains one year of smart factory energy data collected from South Korea.
+This project uses machine learning to forecast energy consumption in the steel industry based on historical data. The goal is to build a predictive model that can help in optimizing energy usage.
 
-### 🎯 Objective
-- Clean and preprocess raw industrial energy data.
-- Perform feature engineering (time, environment, operational metadata).
-- Develop regression models to forecast energy consumption.
-- Analyze efficiency patterns and identify potential energy-saving opportunities.
+The core of the project includes data preprocessing, feature engineering, and training an XGBoost Regressor model. A simple web application is also provided to interact with the trained model.
 
-### 🧰 Tech Stack
-- **Languages:** Python  
-- **Libraries:** pandas, numpy, matplotlib, seaborn, scikit-learn  
-- **Tools:** Jupyter Notebook, GitHub
+## Features
 
-### 📁 Project Structure
+* **Data Cleaning:** Processes raw steel industry data to handle missing values and prepare it for analysis.
+* **Feature Engineering:** Creates new features to improve model performance.
+* **Model Training:** Uses an `XGBoost` model to forecast `Usage_kWh`.
+* **Web Application:** A simple front-end (built with Flask/Streamlit) to load the model and make live predictions.
+* **Analysis:** A Jupyter Notebook (`Industrial_Energy_Consumption_Prediction.ipynb`) detailing the entire process.
+
+## Technologies Used
+
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* XGBoost
+* Matplotlib / Seaborn
+* Flask / Streamlit (for `app.py`)
+* Jupyter Notebook
+
+## Project Structure
+
 ```
 industrial-energy-consumption-forecasting/
-│
+├── app.py                      # Main application file (Flask/Streamlit)
 ├── data/
-│   ├── raw/                # Original dataset
-│   └── processed/          # Cleaned dataset
-│
+│   ├── processed/
+│   │   └── cleaned_steel_data.csv  # Cleaned data
+│   └── raw/
+│       └── Steel_industry_data.csv # Raw dataset
 ├── notebooks/
-│   └── Industrial_Energy_Consumption_Prediction.ipynb
-│
-├── README.md
-├── requirements.txt
-└── LICENSE
+│   └── Industrial_Energy_Consumption_Prediction.ipynb # Jupyter Notebook with full analysis
+├── .gitignore                  # Files to ignore
+├── README.md                   # You are here
+├── requirements.txt            # Project dependencies
+└── xgb_model.pkl               # Trained XGBoost model file
 ```
 
-### 🔍 Dataset
-**Source:** [UCI Machine Learning Repository - Steel Industry Energy Consumption](https://archive.ics.uci.edu/dataset/851/steel+industry+energy+consumption)  
-**License:** Open for academic and research use.
+## How to Use
 
-### 🧪 Steps Performed
-1. Loaded and inspected raw dataset  
-2. Cleaned missing values and handled outliers  
-3. Encoded categorical variables  
-4. Created time-based features  
-5. Trained regression model (Linear Regression, Random Forest)  
-6. Evaluated performance using MAE and R² Score  
+Follow these instructions to get a copy of the project up and running on your local machine.
 
-### 📈 Results
-- Achieved **98% R² score** and **MAE = 2.47 kWh** on test data.  
-- Found significant correlation between temperature, humidity, and energy usage.
+### Prerequisites
 
-### 💡 Future Work
-- Implement anomaly detection to identify inefficient operations.  
-- Deploy a Streamlit web dashboard for real-time monitoring.  
-- Integrate weather API data for live forecasting.
+* Python 3.8 or higher
+* Git
 
-### 👨‍💻 Author
-**Vishnu N**  
-📧 vishnun2811@gmail.com
+### Installation
 
----
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/industrial-energy-consumption-forecasting.git](https://github.com/your-username/industrial-energy-consumption-forecasting.git)
+    cd industrial-energy-consumption-forecasting
+    ```
 
-> ⭐ If you found this project useful, please consider starring the repo!
+2.  **Create a virtual environment:**
+    ```bash
+    # Windows
+    python -m venv venv
+    venv\Scripts\activate
+    
+    # macOS / Linux
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+3.  **Install the required dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Running the Notebook
+
+To explore the data analysis, feature engineering, and model training process, you can run the Jupyter Notebook:
+
+```bash
+jupyter notebook notebooks/Industrial_Energy_Consumption_Prediction.ipynb
+```
+
+### Running the Application
+
+To start the web application and make predictions:
+
+**(Note: Change this command based on whether you used Flask or Streamlit)**
+
+* **If using Flask:**
+    ```bash
+    python app.py
+    ```
+    Then open your browser to `http://127.0.0.1:5000`
+
+* **If using Streamlit:**
+    ```bash
+    streamlit run app.py
+    ```
+    Then open your browser to the URL provided in the terminal.
+
+## Data
+
+The dataset used is `Steel_industry_data.csv`, which contains various features related to steel production and the corresponding energy consumption (`Usage_kWh`).
+
+*(Optional: Add a link to where you got the dataset, e.g., "The dataset was sourced from Kaggle [link here].")*
+
+## Model
+
+The model is an `XGBoost Regressor` trained on the cleaned and feature-engineered data. It is saved in the file `xgb_model.pkl`. The notebook `Industrial_Energy_Consumption_Prediction.ipynb` contains the complete details of the model's training and evaluation.
