@@ -1,12 +1,12 @@
 # Data files
-*.csv
-data/
-notebooks/cleaned_steel_data.csv
-steel_data_with_features.csv
+# *.csv
+# data/
+# notebooks/cleaned_steel_data.csv
+# steel_data_with_features.csv
 
 # Model files
-*.pkl
-xgb_model.pkl
+#*.pkl
+# xgb_model.pkl
 
 # Python
 __pycache__/
